@@ -1,2 +1,0 @@
-# NBAStat-Search
-NBA Stats
