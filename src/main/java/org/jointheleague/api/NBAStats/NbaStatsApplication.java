@@ -7,7 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class NbaStatsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NbaStatsApplication.class, args);
+		try {
+			SpringApplication.run(NbaStatsApplication.class, args);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }
