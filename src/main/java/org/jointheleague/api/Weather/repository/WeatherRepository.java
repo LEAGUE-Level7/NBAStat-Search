@@ -1,13 +1,15 @@
-package org.jointheleague.api.NBAStats.repository;
+package org.jointheleague.api.Weather.repository;
+
 
 import org.springframework.stereotype.Repository;
 import org.springframework.web.reactive.function.client.WebClient;
 @Repository
-public class NBARepository {
+public class WeatherRepository {
 
     private static  WebClient webClient;
-    private static final String baseUrl = "https://www.balldontlie.io/api/v1/stats";
-    public NBARepository() {
+    private static final String baseUrl = "https://api.weatherapi.com/v1/current.json";
+    private static final String APIKey = "";
+    public WeatherRepository() {
         webClient = WebClient
                 .builder()
                 .baseUrl(baseUrl)
@@ -16,7 +18,8 @@ public class NBARepository {
     public String getResults(String query) {
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder
-                        .queryParam("dates", query)
+                        .queryParam("key", APIKey)
+                        .queryParam("q", query)
                         .build()
                 )
                 .retrieve()

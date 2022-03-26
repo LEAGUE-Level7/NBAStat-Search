@@ -1,4 +1,4 @@
-package org.jointheleague.api.NBAStats.config;
+package org.jointheleague.api.Weather.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

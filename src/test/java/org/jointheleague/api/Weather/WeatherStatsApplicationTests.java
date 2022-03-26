@@ -1,10 +1,10 @@
-package org.jointheleague.api.NBAStats;
+package org.jointheleague.api.Weather;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NbaStatsApplicationTests {
+class WeatherStatsApplicationTests {
 
 	@Test
 	void contextLoads() {

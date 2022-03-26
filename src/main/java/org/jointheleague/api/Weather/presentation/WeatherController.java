@@ -1,22 +1,18 @@
-package org.jointheleague.api.NBAStats.presentation;
+package org.jointheleague.api.Weather.presentation;
 
-import org.jointheleague.api.NBAStats.repository.NBARepository;
-import org.jointheleague.api.NBAStats.service.NBAService;
+import org.jointheleague.api.Weather.service.WeatherService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponses;
-
-import java.util.List;
 
 @RestController
-public class NBAController {
-	private NBAService nbaService;
+public class WeatherController {
+	private WeatherService weatherService;
 	
-	public NBAController (NBAService nbaService) {
-		this.nbaService = nbaService;
+	public WeatherController (WeatherService weatherService) {
+		this.weatherService = weatherService;
 	}
     @GetMapping("/searchNBAStats")
     @ApiOperation(value = "Statistics of the specific request from the NBA",
@@ -29,7 +25,7 @@ public class NBAController {
     })
     */
     public String getResults(@RequestParam(value="q") String querey){
-        return nbaService.getResults(querey);
+        return weatherService.getResults(querey);
     }
 
 }
