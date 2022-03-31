@@ -1,5 +1,8 @@
 package org.jointheleague.api.Weather.presentation;
 
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import org.jointheleague.api.Weather.repository.dto.Weather;
 import org.jointheleague.api.Weather.service.WeatherService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,17 +17,15 @@ public class WeatherController {
 	public WeatherController (WeatherService weatherService) {
 		this.weatherService = weatherService;
 	}
-    @GetMapping("/searchNBAStats")
-    @ApiOperation(value = "Statistics of the specific request from the NBA",
+    @GetMapping("/searchWeather")
+    @ApiOperation(value = "Weather information from a specific location",
     notes = "Response may include multiple Result values.",
     response = String.class)
-    /*
     @ApiResponses(value = {
-    		@ApiResponse(code = 200, message = "Result(s) found"),
-    		@ApiResponse(code = 404, message = "Result(s) not found")
+    		@ApiResponse(code = 200, message = "Result(s) found."),
+    		@ApiResponse(code = 404, message = "Result(s) not found.")
     })
-    */
-    public String getResults(@RequestParam(value="q") String querey){
+    public Weather getResults(@RequestParam(value="q") String querey){
         return weatherService.getResults(querey);
     }
 

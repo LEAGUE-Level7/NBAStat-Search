@@ -2,6 +2,7 @@ package org.jointheleague.api.Weather;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.server.ResponseStatusException;
 
 @SpringBootApplication
 public class WeatherStatsApplication {

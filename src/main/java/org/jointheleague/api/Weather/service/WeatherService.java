@@ -2,6 +2,7 @@ package org.jointheleague.api.Weather.service;
 
 
 import org.jointheleague.api.Weather.repository.WeatherRepository;
+import org.jointheleague.api.Weather.repository.dto.Weather;
 import org.springframework.stereotype.Service;
 
 
@@ -12,7 +13,7 @@ public class WeatherService {
     public WeatherService(WeatherRepository weatherRepository) {
         this.weatherRepository = weatherRepository;
     }
-    public String getResults(String query){
+    public Weather getResults(String query){
         return weatherRepository.getResults(query);
     }
 
