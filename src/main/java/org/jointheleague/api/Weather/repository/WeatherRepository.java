@@ -16,16 +16,24 @@ public class WeatherRepository {
                 .baseUrl(baseUrl)
                 .build();
     }
+    public WeatherRepository(WebClient webClientMock) {
+        this.webClient = webClientMock;
+    }
+
     public Weather getResults(String query) {
-        return webClient.get()
-                .uri(uriBuilder -> uriBuilder
-                        .queryParam("key", APIKey)
-                        .queryParam("q", query)
-                        .build()
-                )
-                .retrieve()
-                .bodyToMono(Weather.class)
-                .block();
+        try {
+            return webClient.get()
+                    .uri(uriBuilder -> uriBuilder
+                            .queryParam("key", APIKey)
+                            .queryParam("q", query)
+                            .build()
+                    )
+                    .retrieve()
+                    .bodyToMono(Weather.class)
+                    .block();
+        } catch (Exception e){
+            return null;
+        }
     }
 
 }

@@ -14,7 +14,8 @@ public class WeatherService {
         this.weatherRepository = weatherRepository;
     }
     public Weather getResults(String query){
-        return weatherRepository.getResults(query);
+        Weather w =  weatherRepository.getResults(query);
+        return w;
     }
 
 }

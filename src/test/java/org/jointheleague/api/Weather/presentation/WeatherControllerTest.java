@@ -14,7 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-class HomeControllerTest {
+class WeatherControllerTest {
 
     private WeatherController weatherController;
 
@@ -30,7 +30,7 @@ class HomeControllerTest {
     @Test
     void givenGoodQuery_whenGetResults_thenReturnListOfResults() {
         //given
-        String query = "Java";
+        String query = "Paris";
         Weather result = new Weather();
         result.setLocation(new Location());
         result.setCurrent(new Current());
@@ -49,11 +49,10 @@ class HomeControllerTest {
     @Test
     void givenBadQuery_whenGetResults_thenThrowsException() {
         //given
-        String query = "Java";
+        String query = "trashland";
 
         //when
-        when(weatherService.getResults(query))
-                .thenReturn(null);
+
         //then
         Throwable exceptionThrown = assertThrows(ResponseStatusException.class, () -> weatherController.getResults(query));
         assertEquals(exceptionThrown.getMessage(), "404 NOT_FOUND \"Result(s) not found.\"");
