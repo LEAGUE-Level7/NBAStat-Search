@@ -19,10 +19,10 @@ public class ApiDocConfig {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "Level 7 Weather API",
-                "League of Amazing Programmers Level 7 Weather API",
+                "Ozan Bayraktaroglu Level 7 Weather API",
                 "1.0.0",
                 null,
-                new Contact("Ozan Bayraktaroglu", "www.jointheleague.org", "ozan06bayraktaroglu@gmail.com"),
+                new Contact("Ozan Bayraktaroglu", null, "ozan06bayraktaroglu@gmail.com"),
                 null, null, Collections.emptyList());
     }
 

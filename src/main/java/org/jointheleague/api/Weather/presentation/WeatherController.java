@@ -21,16 +21,15 @@ public class WeatherController {
 	}
     @GetMapping("/searchWeather")
     @ApiOperation(value = "Weather information from a specific location",
-        notes = "Response may include multiple Result values.",
         response = Weather.class)
     @ApiResponses(value = {
-    		@ApiResponse(code = 200, message = "Result(s) found."),
-    		@ApiResponse(code = 404, message = "Result(s) not found."),
+    		@ApiResponse(code = 200, message = "Result found."),
+    		@ApiResponse(code = 404, message = "Result not found."),
     })
     public Weather getResults(@RequestParam(value="q") String query){
         Weather output = weatherService.getResults(query);
         if(output==null){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Result(s) not found.");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Result not found.");
         }
 
         return output;

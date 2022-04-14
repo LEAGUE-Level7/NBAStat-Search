@@ -55,7 +55,7 @@ class WeatherControllerTest {
 
         //then
         Throwable exceptionThrown = assertThrows(ResponseStatusException.class, () -> weatherController.getResults(query));
-        assertEquals(exceptionThrown.getMessage(), "404 NOT_FOUND \"Result(s) not found.\"");
+        assertEquals(exceptionThrown.getMessage(), "404 NOT_FOUND \"Result not found.\"");
     }
 
 }
