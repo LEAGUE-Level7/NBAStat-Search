@@ -14,6 +14,10 @@ public class WeatherRepository {
         webClient = WebClient
                 .builder()
                 .baseUrl(baseUrl)
+                .defaultHeaders(httpHeaders -> {
+                    httpHeaders.add("Access-Control-Allow-Origin", "*");
+                    httpHeaders.add("Access-Control-Allow-Methods","GET, OPTIONS, HEAD, PUT, POST");
+                })
                 .build();
     }
     public WeatherRepository(WebClient webClientMock) {
