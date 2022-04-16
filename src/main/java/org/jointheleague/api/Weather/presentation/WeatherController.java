@@ -23,13 +23,13 @@ public class WeatherController {
     @ApiOperation(value = "Weather information from a specific location",
         response = Weather.class)
     @ApiResponses(value = {
-    		@ApiResponse(code = 200, message = "Result found."),
-    		@ApiResponse(code = 404, message = "Result not found."),
+    		@ApiResponse(code = 200, message = "Result(s) found."),
+    		@ApiResponse(code = 404, message = "Result(s) not found."),
     })
     public Weather getResults(@RequestParam(value="q") String query){
         Weather output = weatherService.getResults(query);
         if(output==null){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Result not found.");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Result(s) not found.");
         }
 
         return output;
