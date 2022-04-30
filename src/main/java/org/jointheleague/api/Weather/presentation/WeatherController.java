@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiResponses;
 import org.jointheleague.api.Weather.repository.dto.Weather;
 import org.jointheleague.api.Weather.service.WeatherService;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,7 @@ public class WeatherController {
 		this.weatherService = weatherService;
 	}
     @GetMapping("/searchWeather")
+    @CrossOrigin(origins = "http://localhost:3000")
     @ApiOperation(value = "Weather information from a specific location",
         response = Weather.class)
     @ApiResponses(value = {
